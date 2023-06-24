@@ -1,13 +1,13 @@
 
-var buttonColours = ["red", "blue", "green", "yellow"];
+var buttonColours = ["red", "blue", "green", "yellow"]
 
-var gamePattern = [];
+var gamePattern = []
 
-var userClickedPattern = [];
+var userClickedPattern = []
 
-var level = 0;
+var level = 0
 
-var inGame = false;
+var inGame = false
 
 
     $(document).keydown(function() {
@@ -16,7 +16,15 @@ var inGame = false;
         nextSequence();
         inGame = true;
       }
-  });
+  })
+
+  $("#level-title").click(function() {
+    if (!inGame) {
+      $("#level-title").text("Level " + level);
+      nextSequence();
+      inGame = true;
+    }
+  })
   
 
   $(".btn").click(function() {
@@ -87,7 +95,7 @@ function checkAnswer(currentLevel) {
     setTimeout(function() {
       $("body").removeClass("game-over");}, 200);
 
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Press ME or Any Key to Restart");
     
     startOver();
   }
